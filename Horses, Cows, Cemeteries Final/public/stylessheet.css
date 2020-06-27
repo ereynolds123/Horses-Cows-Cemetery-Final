@@ -2,23 +2,27 @@
 
 body {
   margin: auto;
-  border: 3px solid green;
   padding: 10px;
   background-image: url(images/road-bg.jpg);
   background-size: cover;
   font-family: "Krona One";
   text-align: center;
+  height: 100vh;
+  overflow-y: hidden;
+
 }
 
 #container {
   display: flex;
   justify-content: space-around;
+  
 }
 
 #left-side {
   display: flex;
   flex-direction: column;
   width: 50%;
+  height: 60vhvh;
 }
 
 #right-side {
@@ -49,8 +53,8 @@ body {
   padding: 1em;
   border-radius: 5px;
   border: 6px solid white;
-  width: 160px;
-  height: 80px;
+  width: 10vw;
+  height: 9vh;
   margin-bottom: 1em;
   display: inline-block;
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.44);
@@ -81,30 +85,29 @@ p {
 }
 
 .gameplaybutton {
-  width: 200px;
-  height: 200px;
+  height: 10vh;
   margin: 0 auto 1em auto;
 }
 
 /* First breakpoint, elimates the road */
-@media only screen and (max-width: 675px) {
+@media only screen and (max-width: 700px) {
   body {
     background: url(images/road-bg-sm.jpg);
     background-size: cover;
   }
   .teamBox {
-    width: 100px;
+    width: 17vw;
+    height: 14vh;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .gameplaybutton {
     height: 100px;
+    margin: 0 auto 1em auto;
   }
  #instructionsButton{
    font-size: 1em;
  }
 }
 
-/* Second breakpoint */
-@media only screen and (max-width: 550px) {
-  .gameplaybutton {
-    width: 150px;
-    height: 150px;
-  }
-}
