@@ -1,0 +1,110 @@
+/*Game Play Screen */
+
+body {
+  margin: auto;
+  border: 3px solid green;
+  padding: 10px;
+  background-image: url(images/road-bg.jpg);
+  background-size: cover;
+  font-family: "Krona One";
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#right-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#instructions {
+  margin-bottom: 2em;
+  text-align: center;
+  background-color: green;
+  font-size: 140%;
+}
+
+#instructionsButton {
+  background-color: green;
+  color: white;
+  padding: 0.5em 1em 0.5em 1em;
+  text-decoration: none;
+  font-size: 1.5em;
+  border-radius: 10px;
+}
+
+.teamBox {
+  color: white;
+  background: #333;
+  padding: 1em;
+  border-radius: 5px;
+  border: 6px solid white;
+  width: 160px;
+  height: 80px;
+  margin-bottom: 1em;
+  display: inline-block;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.44);
+  margin: auto;
+}
+
+.teamBox h3,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#scoreTotalTeamOne,
+#scoreTotalTeamTwo {
+  font-size: 2.5em;
+}
+
+#endButton {
+  background-color: #be1e2d;
+  color: white;
+  padding: 0.5em 1em 0.5em 1em;
+  text-decoration: none;
+  font-size: 2em;
+  border-radius: 10px;
+  margin-bottom: 2em;
+}
+
+.gameplaybutton {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1em auto;
+}
+
+/* First breakpoint, elimates the road */
+@media only screen and (max-width: 675px) {
+  body {
+    background: url(images/road-bg-sm.jpg);
+    background-size: cover;
+  }
+  .teamBox {
+    width: 100px;
+    height: 100px;
+  }
+ #instructionsButton{
+   font-size: 1em;
+ }
+}
+
+/* Second breakpoint */
+@media only screen and (max-width: 550px) {
+  .gameplaybutton {
+    width: 150px;
+    height: 150px;
+  }
+}

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+   <title> Horses, Cows and Cemeteries</title>
+   <link rel="stylesheet" type="text/css" href="stylessheet.css">
+   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+   <meta content="utf-8" http-equiv="encoding">
+   <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!--Game Play-->
+   <h1> Horses, Cows and Cemeteries</h1>
+   <p id="instructions"><a id="instructionsButton" onclick="instructionsMessage();"> Instructions </a></p>
+   <main>
+
+<!--Wrapper Container Div-->
+      <div id="container">
+         <div class="team-one">
+<!--Left Side of the game-->
+            <div id="left-side" class="scoreTeamOne">
+               <div class="teamBox">
+                  <h3 id="teamOne"> Team One </h3>
+                  <p id="scoreTotalTeamOne">0</p>
+               </div><img alt="horse for Team One" id="horseTeamOne" class="gameplaybutton"
+                  src="images/horsebutton1.png">
+               <img alt="cow for Team One" id=c"cowTeamOne" class="gameplaybutton" src="images/cowbutton1.png">
+               <img alt="cemetery for Team One" id="cemeteryTeamOne" class="gameplaybutton" src="images/cemetery1.png">
+               <p id="demo"></p>
+            </div>
+         </div>
+
+<!--Right side of the game-->
+         <div class="team-two">
+            <div id="right-side" class="scoreTeamTwo">
+
+               <div class="teamBox">
+                  <h3 id="teamTwo"> Team Two </h3>
+                  <p id="scoreTotalTeamTwo">0</p>
+               </div><img alt="horse for team two" id="horseTeamTwo" class="gameplaybutton"
+                  src="images/horsebutton2.png">
+               <img alt="cow for team two" id="cowTeamTwo" class="gameplaybutton" src="images/cowbutton2.png">
+               <img alt="cemetery for team two" id="cemeteryTeamTwo" class="gameplaybutton" src="images/cemetery2.png">
+            </div>
+         </div>
+      </div>
+   </main>
+   
+<!--The Eng Game Message and Functionality-->
+   <p><a id="endButton" onclick="winningMessage();" style=> END GAME </a></p>
+   <footer>
+      <script type="text/javascript" src="script.js"></script>
+      <br>
+   
+   
+      <p> ©2020 Emily Reynolds Designs</p>
+   </footer>
+
+
+</body>
+
+</html>
