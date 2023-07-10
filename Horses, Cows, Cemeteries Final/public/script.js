@@ -5,17 +5,6 @@ let scoreText;
 let scoreTeamOne = 0;
 let scoreTeamTwo = 0;
 
-//Getting form values
-const teamOneName = localStorage.getItem('teamOneName');
-const teamTwoName = localStorage.getItem('teamTwoName');
-const rulesValue = localStorage.getItem('rulesValue');
-const rulesName = localStorage.getItem('rulesName');
-
-console.log(teamOneName + teamTwoName + rulesValue + rulesName)
-
-
-document.getElementById("teamOne").innerHTML= teamOneName
-document.getElementById("teamTwo").innerHTML= teamTwoName
 
 //Adding to Team One Score
 function addTenTeamOne() {
