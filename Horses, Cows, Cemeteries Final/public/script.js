@@ -160,36 +160,48 @@ function instructionsMessage() {
     document.body.appendChild(popupDiv);
   }
 
-function winningMessage() {
+
+
+  function winningMessage() {
+    var result;
+    if (scoreTeamOne > scoreTeamTwo) {
+        result = "Team One has won!";
+    } else if (scoreTeamTwo > scoreTeamOne) {
+        result = "Team Two has won!";
+    } else {
+        result = "It's a tie!";
+    }
+
     // Create popup div
     var popupDiv = document.createElement('div');
     popupDiv.id = 'popup';
-    
+
     // Create popup content
     var popupContent = document.createElement('div');
     popupContent.id = 'popup-content';
-    
+
     // Create title
     var title = document.createElement('h2');
     title.textContent = 'Congratulations!';
     popupContent.appendChild(title);
-    
+
     // Create message
     var message = document.createElement('p');
-    message.textContent = 'You have won the game!'
+    message.textContent = result; // Display the result dynamically
     popupContent.appendChild(message);
-    
+
     // Create close button
     var closeButton = document.createElement('button');
     closeButton.textContent = 'Close';
     closeButton.addEventListener('click', function() {
-      popupDiv.remove();
+        popupDiv.remove();
     });
     popupContent.appendChild(closeButton);
-    
+
     // Append popup content to popup div
     popupDiv.appendChild(popupContent);
-    
+
     // Append popup div to body
     document.body.appendChild(popupDiv);
-  }
+}
+
