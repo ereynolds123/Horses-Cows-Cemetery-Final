@@ -1,17 +1,18 @@
+
 //Declaring Variables
 let scoreText;
 let scoreTeamOne = 0;
 let scoreTeamTwo = 0;
 
 //Get the values from localstorage if they exist
-let scoreTeamOneTemp =localStorage.getItem("scoreTeamOne")
-let scoreTeamTwoTemp =localStorage.getItem("scoreTeamTwo")
-if(scoreTeamOneTemp){
-   scoreTeamOne = parseInt(scoreTeamOneTemp)
+let scoreTeamOneTemp = localStorage.getItem("scoreTeamOne")
+let scoreTeamTwoTemp = localStorage.getItem("scoreTeamTwo")
+if (scoreTeamOneTemp) {
+    scoreTeamOne = parseInt(scoreTeamOneTemp)
 }
-if(scoreTeamTwoTemp){
+if (scoreTeamTwoTemp) {
     scoreTeamTwo = parseInt(scoreTeamTwoTemp)
- }
+}
 
 
 // Storing score in local storage to persist the data
@@ -28,43 +29,43 @@ function updateLocalStorage() {
     localStorage.setItem("scoreTeamOne", scoreTeamOne);
     localStorage.setItem("scoreTeamTwo", scoreTeamTwo);
     console.log(`update scores: ${scoreTeamOne} and ${scoreTeamTwo}`)
-    
+
 }
 
 //Adding to Team One Score
 function addTenTeamOne() {
-    scoreTeamOne = scoreTeamOne + 10;
+    scoreTeamOne += 10;
     document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
     updateLocalStorage();
 };
 
 function subtractOneTeamOne() {
-    scoreTeamOne = scoreTeamOne - 1;
+    scoreTeamOne -= 1;
     document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
     updateLocalStorage();
 };
 
 function subtractOneHundredTeamOne() {
-    scoreTeamOne = scoreTeamOne - 100;
+    scoreTeamOne -= 100;
     document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
     updateLocalStorage();
 };
 
 //Adding to Team Two Score
 function addTenTeamTwo() {
-    scoreTeamTwo = scoreTeamTwo + 10;
+    scoreTeamTwo += 10;
     document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
     updateLocalStorage();
 };
 
 function subtractOneTeamTwo() {
-    scoreTeamTwo = scoreTeamTwo - 1;
+    scoreTeamTwo -= 1;
     document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
     updateLocalStorage();
 };
 
 function subtractOneHundredTeamTwo() {
-    scoreTeamTwo = scoreTeamTwo - 100;
+    scoreTeamTwo -= 100;
     document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
     updateLocalStorage();
 };
@@ -72,44 +73,6 @@ function subtractOneHundredTeamTwo() {
 //Alert Winner and Restart the game
 
 function winningMessage() {
-    if (scoreTeamOne > scoreTeamTwo) {
-        alert("Congratulations Team One!")
-
-    } else if (scoreTeamTwo > scoreTeamOne) {
-        alert("Congratulations Team Two!")
-
-    } else if (scoreTeamOne == scoreTeamTwo) {
-        alert("It's a tie!")
-
-    }
-    scoreTeamOne = 0;
-    document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
-    scoreTeamTwo = 0;
-    document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
-
-    updateLocalStorage();
-}
-
-function instructionsMessage() {
-    alert("If you spot a horse on your team's side your team gets 10 points.\n\nIf you spot a cow on your opponent's side your opponent loses 1 point.\n\nIf you spot a cemetery on your opponent's side your opponent loses 100 points.\n\nWhen you spot something, click on the icon associated with the side it's on.\n\nYour game will save in the browser!")
-}
-
-//This section clicks on the various buttons for Team One and adds to the point total Team One. 
-let clickOnTeamOneButtons =
- document.getElementById('horseTeamOne').addEventListener("click", addTenTeamOne);
-
-document.getElementById('cowTeamOne').addEventListener("click", subtractOneTeamOne);
-
-document.getElementById('cemeteryTeamOne').addEventListener("click", subtractOneHundredTeamOne);
-
-//This section clicks on the various buttons for Team Two and adds to the point total for Team Two. 
-let clickOnTeamTwoButtons = document.getElementById('horseTeamTwo').addEventListener("click", addTenTeamTwo);
-document.getElementById('cowTeamTwo').addEventListener("click", subtractOneTeamTwo);
-document.getElementById('cemeteryTeamTwo').addEventListener("click", subtractOneHundredTeamTwo);
-
-
-
-  function winningMessage() {
     var result;
     if (scoreTeamOne > scoreTeamTwo) {
         result = `Team One has won with a score of ${scoreTeamOne}`;
@@ -140,7 +103,7 @@ document.getElementById('cemeteryTeamTwo').addEventListener("click", subtractOne
     // Create close button
     var closeButton = document.createElement('button');
     closeButton.textContent = 'Start a new game';
-    closeButton.addEventListener('click', function(){
+    closeButton.addEventListener('click', function () {
         resetValues()
     });
     popupContent.appendChild(closeButton);
@@ -151,8 +114,8 @@ document.getElementById('cemeteryTeamTwo').addEventListener("click", subtractOne
     // Append popup div to body
     document.body.appendChild(popupDiv);
 
-    function resetValues(){
-        popupDiv.remove(); 
+    function resetValues() {
+        popupDiv.remove();
         localStorage.setItem("scoreTeamOne", "0");
         localStorage.setItem("scoreTeamTwo", "0");
         location.reload();
@@ -160,6 +123,40 @@ document.getElementById('cemeteryTeamTwo').addEventListener("click", subtractOne
 
 }
 
+function getCount(animal, team) {
+    var count = parseInt(prompt(`Enter the number of ${animal}s to add to ${team}:`));
+    if (isNaN(count) || count <= 0) {
+        alert("Invalid input. Please enter a positive number.")
+        return;
+    }
+    if (animal === "horse") {
+        if (team === "teamOne") {
+            scoreTeamOne += count * 10;
+            document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
+        } else {
+            scoreTeamTwo += count * 10;
+            document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
+        }
+    } else if (animal === "cow") {
+        if (team === "teamOne") {
+            scoreTeamOne -= count;
+            document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
+        } else {
+            scoreTeamTwo -= count;
+            document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
+        }
+    } else if (animal === "cemetery") {
+        if (team === "teamOne") {
+            scoreTeamOne -= count * 100;
+            document.getElementById("scoreTotalTeamOne").innerHTML = scoreTeamOne;
+        } else {
+            scoreTeamTwo -= count * 100;
+            document.getElementById("scoreTotalTeamTwo").innerHTML = scoreTeamTwo;
+        }
+    }
+    updateLocalStorage();
+}
 
-
-
+function instructionsMessage() {
+    alert("Drive safely!\n\nIf you see a horse on your side, click the horse button.\n\nIf you see a cow on your opponent's side, click the cow button.\n\n If you see a cemetery on your opponent's side, click the cemetery button")
+}
