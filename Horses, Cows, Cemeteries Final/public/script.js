@@ -158,5 +158,51 @@ function getCount(animal, team) {
 }
 
 function instructionsMessage() {
-    alert("Drive safely!\n\nIf you see a horse on your side, click the horse button.\n\nIf you see a cow on your opponent's side, click the cow button.\n\n If you see a cemetery on your opponent's side, click the cemetery button")
-}
+    // Create popup div
+    var popupDiv = document.createElement('div');
+    popupDiv.id = 'popup';
+
+    // Create popup content
+    var popupContent = document.createElement('div');
+    popupContent.id = 'popup-content';
+
+    // Create title
+    var title = document.createElement('h2');
+    title.textContent = 'Instructions';
+    popupContent.appendChild(title);
+
+    // Create message
+    var message = document.createElement('p');
+    popupContent.appendChild(message);
+
+    // Create list
+    var list = document.createElement('ul');
+    var listItem1 = document.createElement('li');
+    listItem1.textContent = 'Click on the horse button to when you see a horse on your side of the car';
+    list.appendChild(listItem1);
+    var listItem2 = document.createElement('li');
+    listItem2.textContent = 'When you opponent spots a cow on your side, hit the cow button';
+    list.appendChild(listItem2);
+    var listItem3 = document.createElement('li');
+    listItem3.textContent = 'When you cemetery spots a cow on your side, hit the cemetery button';
+    list.appendChild(listItem3);
+    popupContent.appendChild(list);
+    var listItem4 = document.createElement('li');
+    listItem4.textContent = 'Drive safely! This scorekeeper is for passengers only.';
+    list.appendChild(listItem4);
+    popupContent.appendChild(list);
+
+    // Create close button
+    var closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.addEventListener('click', function() {
+      popupDiv.remove();
+    });
+    popupContent.appendChild(closeButton);
+
+    // Append popup content to popup div
+    popupDiv.appendChild(popupContent);
+
+    // Append popup div to body
+    document.body.appendChild(popupDiv);
+  }
