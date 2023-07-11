@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cpanelUser/searc107/
+    - /bin/cp -R * $DEPLOYPATH
