@@ -12,6 +12,10 @@ body {
 
 }
 
+footer{
+  padding: 2em;
+}
+
 #container {
   display: flex;
   justify-content: space-around;
@@ -209,3 +213,4 @@ p {
 #popup-close:hover {
   background-color: #f2f2f2;
 }
+
