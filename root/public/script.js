@@ -178,17 +178,17 @@ function instructionsMessage() {
     // Create list
     var list = document.createElement('ul');
     var listItem1 = document.createElement('li');
-    listItem1.textContent = 'Click on the horse button to when you see a horse on your side of the car';
+    listItem1.textContent = "When you see a horse on your side of the car, click your team's horse button";
     list.appendChild(listItem1);
     var listItem2 = document.createElement('li');
-    listItem2.textContent = 'When your opponent spots a cow on your side, hit the cow button';
+    listItem2.textContent = "When your opponent spots a cow on your side, click your team's cow button";
     list.appendChild(listItem2);
     var listItem3 = document.createElement('li');
-    listItem3.textContent = 'When your opponent spots a cemetery on your side, hit the cemetery button';
+    listItem3.textContent = "When your opponent spots a cemetery on your side, click your team's cemetery button";
     list.appendChild(listItem3);
     popupContent.appendChild(list);
     var listItem4 = document.createElement('li');
-    listItem4.textContent = 'Drive safely! This scorekeeper is for passengers only.';
+    listItem4.textContent = "Drive safely! This scorekeeper is for passengers only.";
     list.appendChild(listItem4);
     popupContent.appendChild(list);
 
